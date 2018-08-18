@@ -1,0 +1,54 @@
+<div class='card'>
+    <div class='card-header'>
+        {{pageTitle}}
+    </div>
+
+</div>
+<div class='card-body'>
+    <div clarr='row'>
+        <div class='col-md-2'>Filter by:</div>
+        <div class='col-md-4'>
+            <input type='text' />
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-6'></div>
+        <h4>Filtered by: </h4>
+
+    </div>
+</div>
+<div class='table-responsive'>
+    <table class='table' 
+        *ngIf='products && products.length'>
+        <thead>
+            <tr>
+                <th>
+                    <button class='btn btn-primary' (click)='toggleImage()'>
+                       <!-- {{showImage ? 'Hide' : 'Show'}} Image -->
+                        Show Image
+                    </button>
+                </th>
+                <th>Product</th>
+                <Th>Code</Th>
+                <th>Available</th>
+                <th>Price</th>
+                <th>5 Star Rating</th>
+            </tr>
+        </thead>
+        <tr *ngFor='let product of products'>
+            <td>
+                <img *ngIf='showImage' [src]="product.imageUrl" [title]='product.productName' [style.width.px]='imageWidth' [style.margin,.px]='imageMargin'>
+
+            </td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productCode | lowercase}}</td>
+            <td>{{product.releaseDate}}</td>
+            <td>{{product.price | currency:'USD':'symbol':'1.2-2' }}</td>
+            <td>{{product.starRating}}</td>
+
+        </tr>
+        <tbody>
+
+        </tbody>
+    </table> 
+</div>
