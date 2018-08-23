@@ -24,4 +24,4 @@ export interface IProduct {
 //         calculateDiscount(percent: number): number{
 //             return this.price - (this.price * percent/100);
 //         }
-}
+//}
