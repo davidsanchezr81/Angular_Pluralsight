@@ -21,7 +21,7 @@ constructor(private http: HttpClient) {}
 getProducts(): Observable<IProduct[]>{
 
     return this.http.get<IProduct[]>(this.productUrl).pipe(
-      tap(data => console.log('All:' + JSON.stringify(data))),
+      tap(data => console.log('All:' + JSON.stringify(data))), // tap and catchError are operators from rxjs
       catchError(this.handleError)
     );
 }
