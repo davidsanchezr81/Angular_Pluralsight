@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../../api/products/product';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -12,7 +12,8 @@ pageTitle: string ='Product Detail';
 product: IProduct;
 
 
-  constructor(private route: ActivatedRoute) { } // activatedroute is injected in this component
+  constructor(private route: ActivatedRoute,
+              private router : Router) { } // activatedroute is injected in this component
 
   ngOnInit() { //OnInit Lifecycle Hook
 
@@ -34,6 +35,8 @@ this.product = {
 }
 }
 
-
+onBack(): void { // This methos is to code the route using Router instead of using the ActivatedRoute
+this.router.navigate(['/products']);
+}
 
 }
